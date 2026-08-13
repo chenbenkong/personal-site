@@ -1,11 +1,9 @@
-import React, {useState, createRef} from "react";
+import React, {createRef} from "react";
 import "./ExperienceCard.scss";
 import ColorThief from "colorthief";
-import Modal from "../Modal/Modal";
 
 export default function ExperienceCard({cardInfo, isDark}) {
-  const [colorArrays, setColorArrays] = useState([]);
-  const [show, setShow] = useState(false);
+  const [colorArrays, setColorArrays] = React.useState([]);
   const imgRef = createRef();
 
   function getColorArrays() {
@@ -32,93 +30,83 @@ export default function ExperienceCard({cardInfo, isDark}) {
       : null;
   };
 
-  const sections = [
-    cardInfo.descBullets && cardInfo.descBullets.length
-      ? {heading: "主要职责", items: cardInfo.descBullets}
-      : null,
-    cardInfo.highlights && cardInfo.highlights.length
-      ? {heading: "关键成果", items: cardInfo.highlights}
-      : null
-  ].filter(Boolean);
+  // 点击卡片跳转到关联链接（新标签页打开），不再弹窗
+  function handleOpen() {
+    const url = cardInfo.links && cardInfo.links[0] && cardInfo.links[0].url;
+    if (url) {
+      window.open(url, "_blank", "noopener,noreferrer");
+    }
+  }
+
+  const linkLabel =
+    cardInfo.links && cardInfo.links[0] && cardInfo.links[0].name
+      ? cardInfo.links[0].name
+      : "了解更多";
 
   return (
-    <>
+    <div
+      className={isDark ? "experience-card-dark" : "experience-card"}
+      style={{cursor: "pointer"}}
+      role="button"
+      tabIndex={0}
+      onClick={handleOpen}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") handleOpen();
+      }}
+    >
       <div
-        className={isDark ? "experience-card-dark" : "experience-card"}
-        style={{cursor: "pointer"}}
-        role="button"
-        tabIndex={0}
-        onClick={() => setShow(true)}
-        onKeyDown={(e) => {
-          if (e.key === "Enter" || e.key === " ") setShow(true);
-        }}
+        style={{background: rgb(colorArrays)}}
+        className="experience-banner"
       >
-        <div
-          style={{background: rgb(colorArrays)}}
-          className="experience-banner"
-        >
-          <div className="experience-blurred_div"></div>
-          <div className="experience-div-company">
-            <h5 className="experience-text-company">{cardInfo.company}</h5>
-          </div>
+        <div className="experience-blurred_div"></div>
+        <div className="experience-div-company">
+          <h5 className="experience-text-company">{cardInfo.company}</h5>
+        </div>
 
-          <img
-            ref={imgRef}
-            className="experience-roundedimg"
-            src={cardInfo.companylogo}
-            alt={cardInfo.company}
-            onLoad={() => getColorArrays()}
-          />
-        </div>
-        <div className="experience-text-details">
-          <h5
-            className={
-              isDark
-                ? "experience-text-role dark-mode-text"
-                : "experience-text-role"
-            }
-          >
-            {cardInfo.role}
-          </h5>
-          <h5
-            className={
-              isDark
-                ? "experience-text-date dark-mode-text"
-                : "experience-text-date"
-            }
-          >
-            {cardInfo.date}
-          </h5>
-          <p
-            className={
-              isDark
-                ? "subTitle experience-text-desc dark-mode-text"
-                : "subTitle experience-text-desc"
-            }
-          >
-            {cardInfo.desc}
-          </p>
-          <ul>
-            <GetDescBullets
-              descBullets={cardInfo.descBullets}
-              isDark={isDark}
-            />
-          </ul>
-          <span className="experience-more">点击查看完整经历 →</span>
-        </div>
+        <img
+          ref={imgRef}
+          className="experience-roundedimg"
+          src={cardInfo.companylogo}
+          alt={cardInfo.company}
+          onLoad={() => getColorArrays()}
+        />
       </div>
-
-      <Modal
-        open={show}
-        onClose={() => setShow(false)}
-        isDark={isDark}
-        title={`${cardInfo.role} @ ${cardInfo.company}`}
-        subtitle={cardInfo.date}
-        overview={cardInfo.desc}
-        techStack={cardInfo.tech}
-        sections={sections}
-        links={cardInfo.links}
-      />
-    </>
+      <div className="experience-text-details">
+        <h5
+          className={
+            isDark
+              ? "experience-text-role dark-mode-text"
+              : "experience-text-role"
+          }
+        >
+          {cardInfo.role}
+        </h5>
+        <h5
+          className={
+            isDark
+              ? "experience-text-date dark-mode-text"
+              : "experience-text-date"
+          }
+        >
+          {cardInfo.date}
+        </h5>
+        <p
+          className={
+            isDark
+              ? "subTitle experience-text-desc dark-mode-text"
+              : "subTitle experience-text-desc"
+          }
+        >
+          {cardInfo.desc}
+        </p>
+        <ul>
+          <GetDescBullets
+            descBullets={cardInfo.descBullets}
+            isDark={isDark}
+          />
+        </ul>
+        <span className="experience-more">{linkLabel} →</span>
+      </div>
+    </div>
   );
 }

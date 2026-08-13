@@ -137,21 +137,13 @@ const educationInfo = {
       schoolName: "岭南师范学院",
       logo: require("./assets/images/lnnu.svg"),
       subHeader: "软件工程 · 工学学士",
-      duration: "2022.09 – 2026.06",
+      duration: "2022.09 – 2026.06（本科在读）",
       desc: "主修软件工程，系统学习数据结构、算法、操作系统、计算机网络、数据库、软件工程等核心课程，GPA 3.6 / 4.0（专业前 15%）。",
       descBullets: [
         "加入学院 ACM 集训队，参与算法竞赛训练并协助校赛出题",
         "作为核心成员开发校园二手书交易平台，服务本校 3000+ 名学生",
         "连续两年获校级奖学金，毕业设计为 RAG 文档问答系统"
       ]
-    },
-    {
-      schoolName: "湛江市第二中学",
-      logo: require("./assets/images/zhanjiangHS.svg"),
-      subHeader: "理科班",
-      duration: "2019.09 – 2022.06",
-      desc: "高中阶段接触信息学，参加全国青少年信息学奥林匹克联赛（NOIP），由此确立对计算机专业的兴趣。",
-      descBullets: ["NOIP 普及组 / 提高组获奖"]
     }
   ]
 };
@@ -215,7 +207,7 @@ const workExperiences = {
         "首个可用版本两周内交付并上线内部试用",
         "获团队季度新人奖提名"
       ],
-      links: [{name: "公司官网", url: ""}]
+      links: [{name: "RAG 专题", url: "https://github.com/topics/rag"}]
     },
     {
       role: "全栈开发实习生",
@@ -241,7 +233,7 @@ const workExperiences = {
         "模块按时交付，支撑首批 5 家客户接入",
         "沉淀的鉴权中间件被其他业务线复用"
       ],
-      links: [{name: "公司官网", url: ""}]
+      links: [{name: "Chatbot 专题", url: "https://github.com/topics/chatbot"}]
     },
     {
       role: "开源贡献者",
@@ -259,7 +251,7 @@ const workExperiences = {
         "累计合并 12+ 个 PR，2 个项目被社区采用 / 收录",
         "获项目维护者邀请成为 triage 协助者"
       ],
-      links: [{name: "GitHub", url: "https://github.com/chenbenkong"}]
+      links: [{name: "Open Source 专题", url: "https://github.com/topics/open-source"}]
     },
     {
       role: "项目组长",
@@ -277,7 +269,7 @@ const workExperiences = {
         "获校级大学生创新创业训练计划立项并顺利结项",
         "注册用户 3000+，成为校内常用二手流转渠道"
       ],
-      links: [{name: "GitHub", url: "https://github.com/chenbenkong"}]
+      links: [{name: "Spring Boot 专题", url: "https://github.com/topics/spring-boot"}]
     }
   ]
 };
@@ -294,14 +286,14 @@ const openSource = {
 
 const bigProjects = {
   title: "Big Projects",
-  subtitle: "我主导或深度参与的一些项目，点击卡片查看完整介绍",
+  subtitle: "我主导或深度参与的一些项目，点击卡片跳转到对应开源仓库",
   projects: [
     {
       image: require("./assets/images/proj-docqa.svg"),
       projectName: "DocQA · RAG 文档问答",
       projectDesc:
         "基于检索增强生成（RAG）的本地文档问答系统，上传 PDF / Markdown 即可对话，答案带引用溯源。毕业设计原型。",
-      footerLink: [{name: "GitHub", url: "https://github.com/chenbenkong"}],
+      footerLink: [{name: "GitHub · afaqueumer/DocQA", url: "https://github.com/afaqueumer/DocQA"}],
       tech: [
         "Python",
         "LangChain",
@@ -325,7 +317,7 @@ const bigProjects = {
       projectName: "AlgoViz · 算法可视化平台",
       projectDesc:
         "面向初学者的算法可视化网站，支持排序、图遍历、动态规划等算法的分步动画演示与复杂度标注。",
-      footerLink: [{name: "GitHub", url: "https://github.com/chenbenkong"}],
+      footerLink: [{name: "GitHub · algorithm-visualizer", url: "https://github.com/algorithm-visualizer/algorithm-visualizer"}],
       tech: ["React", "TypeScript", "Canvas", "Node.js", "Vite"],
       features: [
         "排序 / 图遍历 / 动态规划的分步动画与控制（播放 / 单步 / 调速）",
@@ -342,7 +334,7 @@ const bigProjects = {
       projectName: "CampusBot · 校园智能问答",
       projectDesc:
         "面向校园场景的 FAQ 机器人，结合规则引擎与 LLM，接入微信公众号，解答选课 / 教务 / 校园服务类问题。",
-      footerLink: [{name: "GitHub", url: "https://github.com/chenbenkong"}],
+      footerLink: [{name: "GitHub · aagrxyz/CampusBot", url: "https://github.com/aagrxyz/CampusBot"}],
       tech: ["Python", "FastAPI", "Vue", "微信公众号", "向量检索"],
       features: [
         "校内 FAQ 知识库 + 大模型兜底，降低幻觉",
@@ -359,7 +351,7 @@ const bigProjects = {
       projectName: "BookSwap · 校园二手书平台",
       projectDesc:
         "本校学生二手教材流转平台，Spring Boot + Vue 全栈实现，含发布 / 搜索 / 私信 / 订单模块。",
-      footerLink: [{name: "GitHub", url: "https://github.com/chenbenkong"}],
+      footerLink: [{name: "GitHub · kphillpotts/BookSwap", url: "https://github.com/kphillpotts/BookSwap"}],
       tech: ["Spring Boot", "Vue", "MySQL", "Redis", "Nginx"],
       features: [
         "教材发布、按课程 / 专业检索与私信沟通",
@@ -377,13 +369,13 @@ const bigProjects = {
       projectDesc:
         "你正在浏览的站点：基于开源模板定制的个人编程主页，含博客、项目与经历展示，GitHub Pages 自动部署。",
       footerLink: [
-        {name: "Live", url: "https://chenbenkong.github.io/personal-site/"}
+        {name: "模板源码 · saadpasta/developerFolio", url: "https://github.com/saadpasta/developerFolio"}
       ],
       tech: ["React", "GitHub Pages", "GitHub Actions", "Markdown"],
       features: [
         "单页作品集 + 博客聚合，支持暗色模式",
         "推送到 main 即自动构建部署",
-        "项目 / 经历卡片可点击查看完整详情"
+        "项目 / 经历卡片可点击跳转到对应仓库"
       ],
       outcomes: [
         "作为求职与作品展示的统一入口",
@@ -395,7 +387,7 @@ const bigProjects = {
       projectName: "LeetHelper · 刷题助手",
       projectDesc:
         "CLI + 网页的算法题管理工具，管理错题本、生成每日练习并导出复习计划。",
-      footerLink: [{name: "GitHub", url: "https://github.com/chenbenkong"}],
+      footerLink: [{name: "GitHub · helloShen/leetcode-helper", url: "https://github.com/helloShen/leetcode-helper"}],
       tech: ["Node.js", "TypeScript", "SQLite", "Express"],
       features: [
         "题目的标签 / 难度 / 状态管理，支持艾宾浩斯复习提醒",
@@ -424,28 +416,28 @@ const achievementSection = {
       subtitle: "第十五届蓝桥杯软件类 Java 大学 B 组 广东赛区一等奖。",
       image: require("./assets/images/ach-comp.svg"),
       imageAlt: "Competition Logo",
-      footerLink: [{name: "详情", url: "https://github.com/chenbenkong"}]
+      footerLink: [{name: "算法专题", url: "https://github.com/topics/algorithm"}]
     },
     {
       title: "大创项目 立项",
       subtitle: "校级大学生创新创业训练计划《校园二手书交易平台》负责人，顺利结项。",
       image: require("./assets/images/ach-cert.svg"),
       imageAlt: "Certificate Logo",
-      footerLink: [{name: "Certification", url: ""}]
+      footerLink: [{name: "Spring Boot 专题", url: "https://github.com/topics/spring-boot"}]
     },
     {
       title: "开源贡献者",
       subtitle: "GitHub 累计 200+ Stars，多个项目被社区采用。",
       image: require("./assets/images/ach-oss.svg"),
       imageAlt: "Open Source Logo",
-      footerLink: [{name: "GitHub", url: "https://github.com/chenbenkong"}]
+      footerLink: [{name: "Open Source 专题", url: "https://github.com/topics/open-source"}]
     },
     {
       title: "AI 应用实践",
       subtitle: "完成 LLM 应用开发系列实践，独立交付 RAG 问答与校园 Bot。",
       image: require("./assets/images/ach-ai.svg"),
       imageAlt: "AI Logo",
-      footerLink: [{name: "GitHub", url: "https://github.com/chenbenkong"}]
+      footerLink: [{name: "LLM 专题", url: "https://github.com/topics/llm"}]
     }
   ],
   display: true // Set false to hide this section, defaults to true

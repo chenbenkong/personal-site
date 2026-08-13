@@ -1,35 +1,22 @@
-import React, {useContext, useState} from "react";
+import React, {useContext} from "react";
 import "./StartupProjects.scss";
 import {bigProjects} from "../../portfolio";
 import {Fade} from "react-reveal";
 import StyleContext from "../../contexts/StyleContext";
-import Modal from "../../components/Modal/Modal";
 
 export default function StartupProject() {
   function openUrlInNewTab(url) {
     if (!url) {
       return;
     }
-    var win = window.open(url, "_blank");
-    win.focus();
+    window.open(url, "_blank", "noopener,noreferrer");
   }
 
   const {isDark} = useContext(StyleContext);
-  const [active, setActive] = useState(null);
 
   if (!bigProjects.display) {
     return null;
   }
-
-  const sections = (project) =>
-    [
-      project.features && project.features.length
-        ? {heading: "功能特性", items: project.features}
-        : null,
-      project.outcomes && project.outcomes.length
-        ? {heading: "成果与影响", items: project.outcomes}
-        : null
-    ].filter(Boolean);
 
   return (
     <Fade bottom duration={1000} distance="20px">
@@ -48,6 +35,10 @@ export default function StartupProject() {
 
           <div className="projects-container">
             {bigProjects.projects.map((project, i) => {
+              const primaryUrl =
+                project.footerLink && project.footerLink[0]
+                  ? project.footerLink[0].url
+                  : "";
               return (
                 <div
                   key={i}
@@ -59,9 +50,11 @@ export default function StartupProject() {
                   style={{cursor: "pointer"}}
                   role="button"
                   tabIndex={0}
-                  onClick={() => setActive(project)}
+                  onClick={() => openUrlInNewTab(primaryUrl)}
                   onKeyDown={(e) => {
-                    if (e.key === "Enter" || e.key === " ") setActive(project);
+                    if (e.key === "Enter" || e.key === " ") {
+                      openUrlInNewTab(primaryUrl);
+                    }
                   }}
                 >
                   {project.image ? (
@@ -86,7 +79,12 @@ export default function StartupProject() {
                     >
                       {project.projectDesc}
                     </p>
-                    <span className="project-more">点击查看项目详情 →</span>
+                    <span className="project-more">
+                      {project.footerLink && project.footerLink[0]
+                        ? project.footerLink[0].name
+                        : "查看项目"}{" "}
+                      →
+                    </span>
                     {project.footerLink ? (
                       <div className="project-card-footer">
                         {project.footerLink.map((link, i) => {
@@ -114,18 +112,6 @@ export default function StartupProject() {
           </div>
         </div>
       </div>
-
-      <Modal
-        open={!!active}
-        onClose={() => setActive(null)}
-        isDark={isDark}
-        title={active ? active.projectName : ""}
-        subtitle="项目详情"
-        overview={active ? active.projectDesc : ""}
-        techStack={active ? active.tech : []}
-        sections={active ? sections(active) : []}
-        links={active ? active.footerLink : []}
-      />
     </Fade>
   );
 }
