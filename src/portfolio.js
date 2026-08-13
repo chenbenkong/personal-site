@@ -23,7 +23,7 @@ const greeting = {
   username: "Benkong",
   title: "Hi all, I'm Benkong",
   subTitle: emoji(
-    "一名计算机专业学生 / 编程爱好者 💻 喜欢用代码解决实际问题，正在探索 Web 开发、算法与开源的世界。"
+    "软件工程专业本科生 / 全栈开发者 💻 喜欢把课程项目与开源实践结合起来，专注 Web 全栈、算法与工程化，正在为成为一名靠谱的软件工程师打基础。"
   ),
   resumeLink: "", // Set to empty to hide the button
   displayGreeting: true // Set false to hide this section, defaults to true
@@ -48,11 +48,18 @@ const socialMediaLinks = {
 
 const skillsSection = {
   title: "What I do",
-  subTitle: "计算机专业学生，正在打磨全栈与算法能力",
+  subTitle: "软件工程专业在读，持续打磨工程能力与算法功底",
   skills: [
-    emoji("⚡ 使用 React / Next.js 构建交互式前端界面"),
-    emoji("⚡ 用 Node.js / Python 编写后端服务与脚本工具"),
-    emoji("⚡ 练习数据结构与算法，参加编程竞赛")
+    emoji(
+      "⚡ 使用 React / Vue + TypeScript 构建现代化前端界面，注重组件复用与交互细节"
+    ),
+    emoji(
+      "⚡ 用 Node.js / Spring Boot 编写后端服务，设计 RESTful API 与数据库模型"
+    ),
+    emoji("⚡ 练习数据结构与算法，参加蓝桥杯与校内 ACM 选拔训练"),
+    emoji(
+      "⚡ 用 Git / Docker / GitHub Actions 管理项目，关注工程化与可维护性"
+    )
   ],
 
   /* Make Sure to include correct Font Awesome Classname to view your icon
@@ -72,32 +79,44 @@ https://fontawesome.com/icons?d=gallery */
       fontAwesomeClassname: "fab fa-js"
     },
     {
+      skillName: "TypeScript",
+      fontAwesomeClassname: "fab fa-js-square"
+    },
+    {
       skillName: "reactjs",
       fontAwesomeClassname: "fab fa-react"
+    },
+    {
+      skillName: "vuejs",
+      fontAwesomeClassname: "fab fa-vuejs"
     },
     {
       skillName: "nodejs",
       fontAwesomeClassname: "fab fa-node"
     },
     {
-      skillName: "python",
-      fontAwesomeClassname: "fab fa-python"
-    },
-    {
       skillName: "java",
       fontAwesomeClassname: "fab fa-java"
+    },
+    {
+      skillName: "python",
+      fontAwesomeClassname: "fab fa-python"
     },
     {
       skillName: "sql-database",
       fontAwesomeClassname: "fas fa-database"
     },
     {
+      skillName: "docker",
+      fontAwesomeClassname: "fab fa-docker"
+    },
+    {
       skillName: "git",
       fontAwesomeClassname: "fab fa-git-alt"
     },
     {
-      skillName: "docker",
-      fontAwesomeClassname: "fab fa-docker"
+      skillName: "linux",
+      fontAwesomeClassname: "fab fa-linux"
     }
   ],
   display: true // Set false to hide this section, defaults to true
@@ -109,23 +128,23 @@ const educationInfo = {
   display: true, // Set false to hide this section, defaults to true
   schools: [
     {
-      schoolName: "某 985 高校",
-      logo: require("./assets/images/harvardLogo.png"),
-      subHeader: "计算机科学与技术 · 工学学士",
-      duration: "2022 - 2026",
-      desc: "系统学习数据结构、算法、操作系统、计算机网络、数据库等核心课程，GPA 排名专业前 10%。",
+      schoolName: "岭南师范学院",
+      logo: require("./assets/images/lnnu.svg"),
+      subHeader: "软件工程 · 工学学士",
+      duration: "2022.09 – 2026.06",
+      desc: "主修软件工程，系统学习数据结构、算法、操作系统、计算机网络、数据库、软件工程等核心课程，GPA 3.6 / 4.0（专业前 15%）。",
       descBullets: [
-        "加入学校开源社区，参与多个校园项目开发",
-        "担任程序设计竞赛集训队成员"
+        "加入学院 ACM 集训队，参与算法竞赛训练并协助校赛出题",
+        "作为核心成员开发校园二手书交易平台，服务本校 3000+ 名学生"
       ]
     },
     {
-      schoolName: "某重点高中",
-      logo: require("./assets/images/stanfordLogo.png"),
-      subHeader: "理科实验班",
-      duration: "2019 - 2022",
-      desc: "信息学奥林匹克竞赛获奖，从此爱上编程。",
-      descBullets: ["NOIP 提高组一等奖"]
+      schoolName: "湛江市第二中学",
+      logo: require("./assets/images/zhanjiangHS.svg"),
+      subHeader: "理科班",
+      duration: "2019.09 – 2022.06",
+      desc: "高中阶段接触信息学，参加全国青少年信息学奥林匹克联赛（NOIP），由此确立对计算机专业的兴趣。",
+      descBullets: ["NOIP 普及组 / 提高组获奖"]
     }
   ]
 };
@@ -136,16 +155,20 @@ const techStack = {
   viewSkillBars: true, //Set it to true to show Proficiency Section
   experience: [
     {
-      Stack: "前端 / Web", //Insert stack or technology you have experience in
-      progressPercentage: "80%" //Insert relative proficiency in percentage
+      Stack: "前端开发", //Insert stack or technology you have experience in
+      progressPercentage: "82%" //Insert relative proficiency in percentage
     },
     {
-      Stack: "后端 / 算法",
+      Stack: "后端开发",
+      progressPercentage: "72%"
+    },
+    {
+      Stack: "算法与数据结构",
       progressPercentage: "70%"
     },
     {
       Stack: "工程化 / DevOps",
-      progressPercentage: "55%"
+      progressPercentage: "58%"
     }
   ],
   displayCodersrank: false // Set true to display codersrank badges section need to changes your username in src/containers/skillProgress/skillProgress.js:17:62, defaults to false
@@ -158,28 +181,36 @@ const workExperiences = {
   experience: [
     {
       role: "前端开发实习生",
-      company: "某科技公司",
-      companylogo: require("./assets/images/facebookLogo.png"),
-      date: "2025.06 – 2025.09",
-      desc: "参与公司内部管理系统的前端开发，使用 React + TypeScript 重构多个核心页面，提升加载性能约 30%。",
+      company: "云栖科技（CloudNest）",
+      companylogo: require("./assets/images/cloudnest.svg"),
+      date: "2025.07 – 2025.09",
+      desc: "参与企业官网与后台管理系统的前端开发，基于 React + TypeScript + Ant Design 重构数据看板模块，首屏加载时间下降约 35%。",
       descBullets: [
-        "独立完成权限管理模块的开发与单测",
-        "与后端协作设计 RESTful 接口规范"
+        "独立完成权限管理（RBAC）前端模块开发与单元测试",
+        "与后端协作制定 OpenAPI 规范，统一前后端字段约定"
       ]
     },
     {
       role: "开源贡献者",
-      company: "多个 GitHub 项目",
-      companylogo: require("./assets/images/quoraLogo.png"),
-      date: "2024 - 至今",
-      desc: "为若干开源项目提交 PR，涉及文档、Bug 修复与功能增强，累计合并 10+ 个 PR。"
+      company: "GitHub 开源社区",
+      companylogo: require("./assets/images/oss.svg"),
+      date: "2024.03 – 至今",
+      desc: "长期向若干前端 / 工具类开源项目贡献代码，涉及文档完善、Bug 修复与功能增强，累计合并 12+ 个 PR。",
+      descBullets: [
+        "维护个人算法题解仓库，累计获得 200+ Stars",
+        "为多个开源项目提交可复用的组件封装与示例"
+      ]
     },
     {
-      role: "自由项目接单",
-      company: "独立开发者",
-      companylogo: require("./assets/images/airbnbLogo.png"),
-      date: "2023 - 至今",
-      desc: "为同学与小团队开发个人主页、小程序与数据爬虫工具，积累全栈实战经验。"
+      role: "项目组长",
+      company: "校园二手书交易平台（孵化项目）",
+      companylogo: require("./assets/images/freelance.svg"),
+      date: "2023.09 – 2024.06",
+      desc: "作为组长带领 4 人小组完成校园二手书交易平台的需求分析、设计与落地，使用 Spring Boot + Vue 实现，获校级大创项目立项。",
+      descBullets: [
+        "负责技术选型、任务拆解与进度管理",
+        "设计发布 / 搜索 / 私信 / 订单核心模块并落地"
+      ]
     }
   ]
 };
@@ -199,10 +230,10 @@ const bigProjects = {
   subtitle: "我参与或主导的一些项目",
   projects: [
     {
-      image: require("./assets/images/saayaHealthLogo.webp"),
-      projectName: "算法可视化平台",
+      image: require("./assets/images/proj-algo.svg"),
+      projectName: "算法可视化平台 AlgoViz",
       projectDesc:
-        "一个面向初学者的算法可视化网站，支持排序、图遍历、动态规划等算法的动画演示，使用 React + Canvas 实现。",
+        "面向初学者的算法可视化网站，支持排序、图遍历、动态规划等算法的分步动画演示；前端基于 React + Canvas，后端用 Node.js 提供题解接口。",
       footerLink: [
         {
           name: "GitHub",
@@ -211,14 +242,14 @@ const bigProjects = {
       ]
     },
     {
-      image: require("./assets/images/nextuLogo.webp"),
-      projectName: "个人博客系统",
+      image: require("./assets/images/proj-book.svg"),
+      projectName: "校园二手书交易平台 BookSwap",
       projectDesc:
-        "基于 Astro 的静态博客，支持 Markdown 写作、RSS 订阅与 GitHub Pages 一键部署，本站点即由其衍生。",
+        "本校学生二手教材流转平台，Spring Boot + Vue 全栈实现，含发布 / 搜索 / 私信 / 订单模块，注册用户 3000+。",
       footerLink: [
         {
-          name: "Live",
-          url: "https://chenbenkong.github.io/personal-site/"
+          name: "GitHub",
+          url: "https://github.com/chenbenkong"
         }
       ]
     }
@@ -231,13 +262,13 @@ const bigProjects = {
 
 const achievementSection = {
   title: emoji("Achievements And Certifications 🏆 "),
-  subtitle: "证书、奖项与一些有意思的里程碑",
+  subtitle: "奖项、证书与一些有意思的里程碑",
 
   achievementsCards: [
     {
-      title: "程序设计竞赛获奖",
-      subtitle: "在省级 / 国家级算法竞赛中多次获奖，锤炼扎实的算法与编码能力。",
-      image: require("./assets/images/codeInLogo.webp"),
+      title: "蓝桥杯软件大赛 省一等奖",
+      subtitle: "第十五届蓝桥杯软件类 Java 大学 B 组 广东赛区一等奖。",
+      image: require("./assets/images/ach-comp.svg"),
       imageAlt: "Competition Logo",
       footerLink: [
         {
@@ -248,8 +279,8 @@ const achievementSection = {
     },
     {
       title: "开源贡献者",
-      subtitle: "在 GitHub 上持续向多个开源项目贡献代码，累计获得 50+ Stars。",
-      image: require("./assets/images/googleAssistantLogo.webp"),
+      subtitle: "GitHub 累计 200+ Stars，多个项目被社区采用。",
+      image: require("./assets/images/ach-oss.svg"),
       imageAlt: "Open Source Logo",
       footerLink: [
         {
@@ -260,9 +291,9 @@ const achievementSection = {
     },
 
     {
-      title: "全栈开发认证",
-      subtitle: "完成现代 Web 全栈开发系列课程并产出毕业项目。",
-      image: require("./assets/images/pwaLogo.webp"),
+      title: "大创项目 立项",
+      subtitle: "校级大学生创新创业训练计划《校园二手书交易平台》负责人，顺利结项。",
+      image: require("./assets/images/ach-cert.svg"),
       imageAlt: "Certificate Logo",
       footerLink: [
         {name: "Certification", url: ""}
@@ -283,7 +314,7 @@ const blogSection = {
       url: "https://chenbenkong.github.io/personal-site/",
       title: "从零搭建一个个人编程网站",
       description:
-        "使用 Astro + GitHub Pages 免费部署一个属于自己的技术博客与作品集，含完整步骤与踩坑记录。"
+        "使用 GitHub Pages + 开源模板免费部署一个属于自己的技术博客与作品集，含完整步骤与踩坑记录。"
     },
     {
       url: "https://chenbenkong.github.io/personal-site/",
@@ -304,7 +335,7 @@ const talkSection = {
   talks: [
     {
       title: "校园开源入门分享",
-      subtitle: "在社团内部分享如何迈出开源第一步",
+      subtitle: "在社团内部分享如何迈出开源第一步：从读文档到提交第一个 PR",
       slides_url: "",
       event_url: ""
     }
@@ -346,7 +377,7 @@ const twitterDetails = {
   display: false // Set true to display this section, defaults to false
 };
 
-const isHireable = false; // Set false if you are not looking for a job. Also isHireable will be display as Open for opportunities: Yes/No in the GitHub footer
+const isHireable = true; // Set false if you are not looking for a job. Also isHireable will be display as Open for opportunities: Yes/No in the GitHub footer
 
 export {
   illustration,
