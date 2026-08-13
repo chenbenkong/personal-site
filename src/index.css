@@ -26,6 +26,25 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+/* 卡片"点击查看详情"提示 */
+.experience-more,
+.project-more {
+  display: inline-block;
+  margin-top: 12px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #1d6fe0;
+  transition: transform 0.15s ease;
+}
+.experience-card:hover .experience-more,
+.project-card:hover .project-more {
+  transform: translateX(4px);
+}
+.dark-mode .experience-more,
+.dark-mode .project-more {
+  color: #64ffda;
+}
+
 /* Media Query */
 @media (max-width: 1380px) {
   html,

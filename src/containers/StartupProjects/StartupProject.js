@@ -1,8 +1,9 @@
-import React, {useContext} from "react";
+import React, {useContext, useState} from "react";
 import "./StartupProjects.scss";
 import {bigProjects} from "../../portfolio";
 import {Fade} from "react-reveal";
 import StyleContext from "../../contexts/StyleContext";
+import Modal from "../../components/Modal/Modal";
 
 export default function StartupProject() {
   function openUrlInNewTab(url) {
@@ -14,9 +15,22 @@ export default function StartupProject() {
   }
 
   const {isDark} = useContext(StyleContext);
+  const [active, setActive] = useState(null);
+
   if (!bigProjects.display) {
     return null;
   }
+
+  const sections = (project) =>
+    [
+      project.features && project.features.length
+        ? {heading: "功能特性", items: project.features}
+        : null,
+      project.outcomes && project.outcomes.length
+        ? {heading: "成果与影响", items: project.outcomes}
+        : null
+    ].filter(Boolean);
+
   return (
     <Fade bottom duration={1000} distance="20px">
       <div className="main" id="projects">
@@ -42,6 +56,13 @@ export default function StartupProject() {
                       ? "dark-mode project-card project-card-dark"
                       : "project-card project-card-light"
                   }
+                  style={{cursor: "pointer"}}
+                  role="button"
+                  tabIndex={0}
+                  onClick={() => setActive(project)}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") setActive(project);
+                  }}
                 >
                   {project.image ? (
                     <div className="project-image">
@@ -65,6 +86,7 @@ export default function StartupProject() {
                     >
                       {project.projectDesc}
                     </p>
+                    <span className="project-more">点击查看项目详情 →</span>
                     {project.footerLink ? (
                       <div className="project-card-footer">
                         {project.footerLink.map((link, i) => {
@@ -74,7 +96,10 @@ export default function StartupProject() {
                               className={
                                 isDark ? "dark-mode project-tag" : "project-tag"
                               }
-                              onClick={() => openUrlInNewTab(link.url)}
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                openUrlInNewTab(link.url);
+                              }}
                             >
                               {link.name}
                             </span>
@@ -89,6 +114,18 @@ export default function StartupProject() {
           </div>
         </div>
       </div>
+
+      <Modal
+        open={!!active}
+        onClose={() => setActive(null)}
+        isDark={isDark}
+        title={active ? active.projectName : ""}
+        subtitle="项目详情"
+        overview={active ? active.projectDesc : ""}
+        techStack={active ? active.tech : []}
+        sections={active ? sections(active) : []}
+        links={active ? active.footerLink : []}
+      />
     </Fade>
   );
 }

@@ -26,7 +26,10 @@ export default function WorkExperience() {
                         date: card.date,
                         companylogo: card.companylogo,
                         role: card.role,
-                        descBullets: card.descBullets
+                        descBullets: card.descBullets,
+                        tech: card.tech,
+                        highlights: card.highlights,
+                        links: card.links
                       }}
                     />
                   );
