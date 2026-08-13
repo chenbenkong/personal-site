@@ -1,0 +1,47 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Card from '../components/Card.astro';
+
+// 把这里换成你自己的项目即可
+const projects = [
+  {
+    href: 'https://github.com/chenbenkong',
+    title: '个人编程网站',
+    body: '你正在看的这个站点，基于 Astro 构建，零成本部署在 GitHub Pages。',
+  },
+  {
+    href: 'https://github.com/chenbenkong',
+    title: '示例项目 A',
+    body: '一句话描述这个项目解决了什么问题、用了什么技术栈。',
+  },
+  {
+    href: 'https://github.com/chenbenkong',
+    title: '示例项目 B',
+    body: '再放一个课程设计或竞赛项目，附上在线 Demo 链接更好。',
+  },
+];
+---
+
+<BaseLayout title="项目">
+  <h1>项目作品</h1>
+  <p class="dim">挑几个能代表我的项目放这里，点开可跳转到仓库。</p>
+  <div class="grid">
+    {projects.map((p) => <Card {...p} />)}
+  </div>
+</BaseLayout>
+
+<style>
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 0.4rem;
+  }
+  .dim {
+    color: var(--text-dim);
+    margin-bottom: 1.5rem;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1rem;
+  }
+</style>

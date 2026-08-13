@@ -1,0 +1,47 @@
+---
+interface Props {
+  href?: string;
+  title: string;
+  body: string;
+}
+const { href, title, body } = Astro.props;
+const Tag = href ? 'a' : 'div';
+---
+
+<Tag class="card" href={href}>
+  <h3>{title}</h3>
+  <p>{body}</p>
+  {href && <span class="more">查看 →</span>}
+</Tag>
+
+<style>
+  .card {
+    display: block;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.25rem 1.4rem;
+    color: var(--text);
+    transition: border-color 0.15s, transform 0.15s;
+  }
+  .card:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    text-decoration: none;
+  }
+  .card h3 {
+    margin: 0 0 0.5rem;
+    font-size: 1.1rem;
+  }
+  .card p {
+    margin: 0;
+    color: var(--text-dim);
+    font-size: 0.92rem;
+  }
+  .more {
+    display: inline-block;
+    margin-top: 0.6rem;
+    color: var(--accent);
+    font-size: 0.85rem;
+  }
+</style>
