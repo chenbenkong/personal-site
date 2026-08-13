@@ -47,25 +47,7 @@ export default function StartupProject() {
                       ? "dark-mode project-card project-card-dark"
                       : "project-card project-card-light"
                   }
-                  style={{cursor: "pointer"}}
-                  role="button"
-                  tabIndex={0}
-                  onClick={() => openUrlInNewTab(primaryUrl)}
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter" || e.key === " ") {
-                      openUrlInNewTab(primaryUrl);
-                    }
-                  }}
                 >
-                  {project.image ? (
-                    <div className="project-image">
-                      <img
-                        src={project.image}
-                        alt={project.projectName}
-                        className="card-image"
-                      ></img>
-                    </div>
-                  ) : null}
                   <div className="project-detail">
                     <h5
                       className={isDark ? "dark-mode card-title" : "card-title"}
@@ -79,32 +61,50 @@ export default function StartupProject() {
                     >
                       {project.projectDesc}
                     </p>
-                    <span className="project-more">
-                      {project.footerLink && project.footerLink[0]
-                        ? project.footerLink[0].name
-                        : "查看项目"}{" "}
-                      →
-                    </span>
-                    {project.footerLink ? (
-                      <div className="project-card-footer">
-                        {project.footerLink.map((link, i) => {
-                          return (
-                            <span
-                              key={i}
-                              className={
-                                isDark ? "dark-mode project-tag" : "project-tag"
-                              }
-                              onClick={(e) => {
-                                e.stopPropagation();
-                                openUrlInNewTab(link.url);
-                              }}
-                            >
-                              {link.name}
-                            </span>
-                          );
-                        })}
+
+                    {project.tech && project.tech.length > 0 && (
+                      <div className="exp-tech">
+                        {project.tech.map((t, i) => (
+                          <span key={i} className="exp-tech-chip">{t}</span>
+                        ))}
                       </div>
-                    ) : null}
+                    )}
+
+                    {project.features && project.features.length > 0 && (
+                      <div className="project-section">
+                        <span className="project-section-label">核心功能</span>
+                        <ul className="project-list">
+                          {project.features.map((f, i) => (
+                            <li key={i} className={isDark ? "dark-mode-text" : ""}>
+                              {f}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+
+                    {project.outcomes && project.outcomes.length > 0 && (
+                      <div className="project-section">
+                        <span className="project-section-label">成果</span>
+                        <ul className="project-list">
+                          {project.outcomes.map((o, i) => (
+                            <li key={i} className={isDark ? "dark-mode-text" : ""}>
+                              {o}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+
+                    {project.footerLink && project.footerLink[0] && (
+                      <button
+                        type="button"
+                        className="exp-repo-link"
+                        onClick={() => openUrlInNewTab(primaryUrl)}
+                      >
+                        {project.footerLink[0].name} →
+                      </button>
+                    )}
                   </div>
                 </div>
               );

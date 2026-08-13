@@ -67,64 +67,7 @@ const skillsSection = {
   /* Make Sure to include correct Font Awesome Classname to view your icon
 https://fontawesome.com/icons?d=gallery */
 
-  softwareSkills: [
-    {
-      skillName: "html-5",
-      fontAwesomeClassname: "fab fa-html5"
-    },
-    {
-      skillName: "css3",
-      fontAwesomeClassname: "fab fa-css3-alt"
-    },
-    {
-      skillName: "JavaScript",
-      fontAwesomeClassname: "fab fa-js"
-    },
-    {
-      skillName: "TypeScript",
-      fontAwesomeClassname: "fab fa-js-square"
-    },
-    {
-      skillName: "reactjs",
-      fontAwesomeClassname: "fab fa-react"
-    },
-    {
-      skillName: "vuejs",
-      fontAwesomeClassname: "fab fa-vuejs"
-    },
-    {
-      skillName: "nodejs",
-      fontAwesomeClassname: "fab fa-node"
-    },
-    {
-      skillName: "java",
-      fontAwesomeClassname: "fab fa-java"
-    },
-    {
-      skillName: "python",
-      fontAwesomeClassname: "fab fa-python"
-    },
-    {
-      skillName: "AI / LLM",
-      fontAwesomeClassname: "fas fa-robot"
-    },
-    {
-      skillName: "sql-database",
-      fontAwesomeClassname: "fas fa-database"
-    },
-    {
-      skillName: "docker",
-      fontAwesomeClassname: "fab fa-docker"
-    },
-    {
-      skillName: "git",
-      fontAwesomeClassname: "fab fa-git-alt"
-    },
-    {
-      skillName: "linux",
-      fontAwesomeClassname: "fab fa-linux"
-    }
-  ],
+  softwareSkills: [],
   display: true // Set false to hide this section, defaults to true
 };
 
@@ -135,7 +78,6 @@ const educationInfo = {
   schools: [
     {
       schoolName: "岭南师范学院",
-      logo: require("./assets/images/lnnu.svg"),
       subHeader: "软件工程 · 工学学士",
       duration: "2022.09 – 2026.06（本科在读）",
       desc: "主修软件工程，系统学习数据结构、算法、操作系统、计算机网络、数据库、软件工程等核心课程，GPA 3.6 / 4.0（专业前 15%）。",
@@ -185,7 +127,6 @@ const workExperiences = {
     {
       role: "AI 应用开发实习生",
       company: "云栖科技（CloudNest）",
-      companylogo: require("./assets/images/cloudnest.svg"),
       date: "2025.07 – 2025.09",
       desc: "参与企业知识库问答产品研发，基于 RAG 架构将内部文档接入大模型，负责对话前端与检索链路调优。",
       descBullets: [
@@ -207,12 +148,11 @@ const workExperiences = {
         "首个可用版本两周内交付并上线内部试用",
         "获团队季度新人奖提名"
       ],
-      links: [{name: "RAG 专题", url: "https://github.com/topics/rag"}]
+      links: [{name: "GitHub · langchain-ai/langchain", url: "https://github.com/langchain-ai/langchain"}]
     },
     {
       role: "全栈开发实习生",
       company: "智言科技（AI SaaS 初创）",
-      companylogo: require("./assets/images/zhiyan.svg"),
       date: "2024.06 – 2024.09",
       desc: "负责 AI 客服产品后台与开放平台，使用 Spring Boot + Vue 实现工单与多渠道接入模块。",
       descBullets: [
@@ -233,12 +173,11 @@ const workExperiences = {
         "模块按时交付，支撑首批 5 家客户接入",
         "沉淀的鉴权中间件被其他业务线复用"
       ],
-      links: [{name: "Chatbot 专题", url: "https://github.com/topics/chatbot"}]
+      links: [{name: "GitHub · t3-oss/create-t3-app", url: "https://github.com/t3-oss/create-t3-app"}]
     },
     {
       role: "开源贡献者",
       company: "GitHub 开源社区",
-      companylogo: require("./assets/images/oss.svg"),
       date: "2024.03 – 至今",
       desc: "长期向 LLM 工具链与前端开源项目贡献代码，涉及文档、Bug 修复与功能增强。",
       descBullets: [
@@ -251,12 +190,11 @@ const workExperiences = {
         "累计合并 12+ 个 PR，2 个项目被社区采用 / 收录",
         "获项目维护者邀请成为 triage 协助者"
       ],
-      links: [{name: "Open Source 专题", url: "https://github.com/topics/open-source"}]
+      links: [{name: "GitHub · facebook/react", url: "https://github.com/facebook/react"}]
     },
     {
       role: "项目组长",
       company: "校园二手书交易平台（校级大创）",
-      companylogo: require("./assets/images/freelance.svg"),
       date: "2023.09 – 2024.06",
       desc: "作为组长带领 4 人小组完成校园二手书交易平台的需求分析、设计与落地。",
       descBullets: [
@@ -269,7 +207,7 @@ const workExperiences = {
         "获校级大学生创新创业训练计划立项并顺利结项",
         "注册用户 3000+，成为校内常用二手流转渠道"
       ],
-      links: [{name: "Spring Boot 专题", url: "https://github.com/topics/spring-boot"}]
+      links: [{name: "GitHub · kphillpotts/BookSwap", url: "https://github.com/kphillpotts/BookSwap"}]
     }
   ]
 };
@@ -289,7 +227,6 @@ const bigProjects = {
   subtitle: "我主导或深度参与的一些项目，点击卡片跳转到对应开源仓库",
   projects: [
     {
-      image: require("./assets/images/proj-docqa.svg"),
       projectName: "DocQA · RAG 文档问答",
       projectDesc:
         "基于检索增强生成（RAG）的本地文档问答系统，上传 PDF / Markdown 即可对话，答案带引用溯源。毕业设计原型。",
@@ -313,7 +250,6 @@ const bigProjects = {
       ]
     },
     {
-      image: require("./assets/images/proj-algo.svg"),
       projectName: "AlgoViz · 算法可视化平台",
       projectDesc:
         "面向初学者的算法可视化网站，支持排序、图遍历、动态规划等算法的分步动画演示与复杂度标注。",
@@ -330,7 +266,6 @@ const bigProjects = {
       ]
     },
     {
-      image: require("./assets/images/proj-bot.svg"),
       projectName: "CampusBot · 校园智能问答",
       projectDesc:
         "面向校园场景的 FAQ 机器人，结合规则引擎与 LLM，接入微信公众号，解答选课 / 教务 / 校园服务类问题。",
@@ -347,7 +282,6 @@ const bigProjects = {
       ]
     },
     {
-      image: require("./assets/images/proj-book.svg"),
       projectName: "BookSwap · 校园二手书平台",
       projectDesc:
         "本校学生二手教材流转平台，Spring Boot + Vue 全栈实现，含发布 / 搜索 / 私信 / 订单模块。",
@@ -364,7 +298,6 @@ const bigProjects = {
       ]
     },
     {
-      image: require("./assets/images/proj-site.svg"),
       projectName: "个人站点 / 作品集（本网站）",
       projectDesc:
         "你正在浏览的站点：基于开源模板定制的个人编程主页，含博客、项目与经历展示，GitHub Pages 自动部署。",
@@ -383,7 +316,6 @@ const bigProjects = {
       ]
     },
     {
-      image: require("./assets/images/proj-leet.svg"),
       projectName: "LeetHelper · 刷题助手",
       projectDesc:
         "CLI + 网页的算法题管理工具，管理错题本、生成每日练习并导出复习计划。",
@@ -414,30 +346,22 @@ const achievementSection = {
     {
       title: "蓝桥杯软件大赛 省一等奖",
       subtitle: "第十五届蓝桥杯软件类 Java 大学 B 组 广东赛区一等奖。",
-      image: require("./assets/images/ach-comp.svg"),
-      imageAlt: "Competition Logo",
-      footerLink: [{name: "算法专题", url: "https://github.com/topics/algorithm"}]
+      footerLink: [{name: "GitHub · MisterBooo/LeetCodeAnimation", url: "https://github.com/MisterBooo/LeetCodeAnimation"}]
     },
     {
       title: "大创项目 立项",
       subtitle: "校级大学生创新创业训练计划《校园二手书交易平台》负责人，顺利结项。",
-      image: require("./assets/images/ach-cert.svg"),
-      imageAlt: "Certificate Logo",
-      footerLink: [{name: "Spring Boot 专题", url: "https://github.com/topics/spring-boot"}]
+      footerLink: [{name: "GitHub · donnemartin/system-design-primer", url: "https://github.com/donnemartin/system-design-primer"}]
     },
     {
       title: "开源贡献者",
       subtitle: "GitHub 累计 200+ Stars，多个项目被社区采用。",
-      image: require("./assets/images/ach-oss.svg"),
-      imageAlt: "Open Source Logo",
-      footerLink: [{name: "Open Source 专题", url: "https://github.com/topics/open-source"}]
+      footerLink: [{name: "GitHub · facebook/react", url: "https://github.com/facebook/react"}]
     },
     {
       title: "AI 应用实践",
       subtitle: "完成 LLM 应用开发系列实践，独立交付 RAG 问答与校园 Bot。",
-      image: require("./assets/images/ach-ai.svg"),
-      imageAlt: "AI Logo",
-      footerLink: [{name: "LLM 专题", url: "https://github.com/topics/llm"}]
+      footerLink: [{name: "GitHub · langchain-ai/langchain", url: "https://github.com/langchain-ai/langchain"}]
     }
   ],
   display: true // Set false to hide this section, defaults to true

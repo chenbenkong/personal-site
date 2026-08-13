@@ -1,111 +1,72 @@
-import React, {createRef} from "react";
+import React from "react";
 import "./ExperienceCard.scss";
-import ColorThief from "colorthief";
 
 export default function ExperienceCard({cardInfo, isDark}) {
-  const [colorArrays, setColorArrays] = React.useState([]);
-  const imgRef = createRef();
-
-  function getColorArrays() {
-    const colorThief = new ColorThief();
-    setColorArrays(colorThief.getColor(imgRef.current));
-  }
-
-  function rgb(values) {
-    return typeof values === "undefined"
-      ? null
-      : "rgb(" + values.join(", ") + ")";
-  }
-
-  const GetDescBullets = ({descBullets, isDark}) => {
-    return descBullets
-      ? descBullets.map((item, i) => (
-          <li
-            key={i}
-            className={isDark ? "subTitle dark-mode-text" : "subTitle"}
-          >
-            {item}
-          </li>
-        ))
-      : null;
-  };
-
-  // 点击卡片跳转到关联链接（新标签页打开），不再弹窗
-  function handleOpen() {
-    const url = cardInfo.links && cardInfo.links[0] && cardInfo.links[0].url;
+  function handleOpen(url) {
     if (url) {
       window.open(url, "_blank", "noopener,noreferrer");
     }
   }
 
-  const linkLabel =
-    cardInfo.links && cardInfo.links[0] && cardInfo.links[0].name
-      ? cardInfo.links[0].name
-      : "了解更多";
+  const repoLink =
+    cardInfo.links && cardInfo.links[0] ? cardInfo.links[0] : null;
+
+  const detailClass = isDark ? "subTitle dark-mode-text" : "subTitle";
 
   return (
     <div
       className={isDark ? "experience-card-dark" : "experience-card"}
-      style={{cursor: "pointer"}}
-      role="button"
-      tabIndex={0}
-      onClick={handleOpen}
-      onKeyDown={(e) => {
-        if (e.key === "Enter" || e.key === " ") handleOpen();
-      }}
     >
-      <div
-        style={{background: rgb(colorArrays)}}
-        className="experience-banner"
-      >
-        <div className="experience-blurred_div"></div>
-        <div className="experience-div-company">
-          <h5 className="experience-text-company">{cardInfo.company}</h5>
+      <div className="experience-text-details">
+        <div className="experience-head">
+          <div>
+            <h5 className={isDark ? "experience-text-role dark-mode-text" : "experience-text-role"}>
+              {cardInfo.role}
+            </h5>
+            <h6 className={isDark ? "experience-text-company dark-mode-text" : "experience-text-company"}>
+              {cardInfo.company}
+            </h6>
+          </div>
+          <span className={isDark ? "experience-text-date dark-mode-text" : "experience-text-date"}>
+            {cardInfo.date}
+          </span>
         </div>
 
-        <img
-          ref={imgRef}
-          className="experience-roundedimg"
-          src={cardInfo.companylogo}
-          alt={cardInfo.company}
-          onLoad={() => getColorArrays()}
-        />
-      </div>
-      <div className="experience-text-details">
-        <h5
-          className={
-            isDark
-              ? "experience-text-role dark-mode-text"
-              : "experience-text-role"
-          }
-        >
-          {cardInfo.role}
-        </h5>
-        <h5
-          className={
-            isDark
-              ? "experience-text-date dark-mode-text"
-              : "experience-text-date"
-          }
-        >
-          {cardInfo.date}
-        </h5>
-        <p
-          className={
-            isDark
-              ? "subTitle experience-text-desc dark-mode-text"
-              : "subTitle experience-text-desc"
-          }
-        >
-          {cardInfo.desc}
-        </p>
-        <ul>
-          <GetDescBullets
-            descBullets={cardInfo.descBullets}
-            isDark={isDark}
-          />
-        </ul>
-        <span className="experience-more">{linkLabel} →</span>
+        <p className={detailClass + " experience-text-desc"}>{cardInfo.desc}</p>
+
+        {cardInfo.descBullets && cardInfo.descBullets.length > 0 && (
+          <ul className="experience-bullets">
+            {cardInfo.descBullets.map((item, i) => (
+              <li key={i} className={detailClass}>{item}</li>
+            ))}
+          </ul>
+        )}
+
+        {cardInfo.tech && cardInfo.tech.length > 0 && (
+          <div className="exp-tech">
+            {cardInfo.tech.map((t, i) => (
+              <span key={i} className="exp-tech-chip">{t}</span>
+            ))}
+          </div>
+        )}
+
+        {cardInfo.highlights && cardInfo.highlights.length > 0 && (
+          <div className="exp-highlights">
+            {cardInfo.highlights.map((h, i) => (
+              <span key={i} className="exp-highlight-item">{h}</span>
+            ))}
+          </div>
+        )}
+
+        {repoLink && (
+          <button
+            type="button"
+            className="exp-repo-link"
+            onClick={() => handleOpen(repoLink.url)}
+          >
+            {repoLink.name} →
+          </button>
+        )}
       </div>
     </div>
   );
